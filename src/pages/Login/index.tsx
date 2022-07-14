@@ -1,5 +1,5 @@
+import { Button } from '~/components'
+
 export const Login = () => {
-  return (
-    <
-  )
+  return <Button text="Cadastrar" />
 }

@@ -3,14 +3,23 @@ import styled, { css } from 'styled-components'
 export type ButtonVariant = 'primary' | 'secondary'
 
 interface ButtonWrapperProps {
-  variant: ButtonVariant
+  backgroundColor: string
 }
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
-  width: 200px;
-  height: 80px;
+  display: flex;
+  align-items: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  border: 0;
+  padding: 1rem;
+  border-radius: 8px;
 
-  ${({ theme, variant }) => css`
-    background-color: ${theme['gray-600']};
+  ${({ theme, backgroundColor }) => css`
+    background: ${backgroundColor};
+    color: ${theme['gray-100']};
   `};
 `
