@@ -1,11 +1,16 @@
 import styled, { css } from 'styled-components'
 
-export const InputWrapper = styled.button`
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+`
+
+export const InputComponent = styled.input`
   background: transparent;
   height: 2.5rem;
   border: 0;
-  font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.1rem;
   padding: 0 0.5rem;
 
   ${({ theme }) => css`

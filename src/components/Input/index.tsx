@@ -1,14 +1,16 @@
-import { FC } from 'react'
-import { InputWrapper } from './styles'
+import { FC, InputHTMLAttributes } from 'react'
+import { InputWrapper, InputComponent } from './styles'
 
-interface InputProps {
-  text: string
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
+  label: string
 }
 
-export const Input: FC<InputProps> = ({ text }) => {
+export const Input: FC<InputProps> = ({ label, name, ...rest }) => {
   return (
     <InputWrapper>
-      <label>{text}</label>
+      <label htmlFor={name}>{label}</label>
+      <InputComponent id={name} {...rest} />
     </InputWrapper>
   )
 }
