@@ -1,16 +1,24 @@
-import { FC, InputHTMLAttributes } from 'react'
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  InputHTMLAttributes,
+} from 'react'
 import { InputWrapper, InputComponent } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  name: string
   label: string
 }
 
-export const Input: FC<InputProps> = ({ label, name, ...rest }) => {
+const Input: ForwardRefRenderFunction<any, InputProps> = (
+  { label, ...rest },
+  ref,
+) => {
   return (
     <InputWrapper>
-      <label htmlFor={name}>{label}</label>
-      <InputComponent id={name} {...rest} />
+      <label htmlFor={rest.name}>{label}</label>
+      <InputComponent ref={ref} {...rest} />
     </InputWrapper>
   )
 }
+
+export default forwardRef(Input)

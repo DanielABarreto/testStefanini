@@ -1,13 +1,17 @@
-import { FC } from 'react'
+import { FC, ButtonHTMLAttributes } from 'react'
 import { useTheme } from 'styled-components'
 import { ButtonWrapper, ButtonVariant } from './styles'
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   text: string
 }
 
-export const Button: FC<ButtonProps> = ({ variant = 'primary', text }) => {
+export const Button: FC<ButtonProps> = ({
+  variant = 'primary',
+  text,
+  ...rest
+}) => {
   const theme = useTheme()
 
   const variantButton = {
@@ -16,7 +20,7 @@ export const Button: FC<ButtonProps> = ({ variant = 'primary', text }) => {
   }
 
   return (
-    <ButtonWrapper backgroundColor={variantButton[variant]}>
+    <ButtonWrapper backgroundColor={variantButton[variant]} {...rest}>
       {text}
     </ButtonWrapper>
   )
