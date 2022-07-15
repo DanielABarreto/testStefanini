@@ -33,7 +33,6 @@ export const Signup = () => {
   })
 
   const handleAdd = (data: NewLoginData) => {
-    console.log('passei', data)
     dispatch(
       addUsers([
         ...users,
